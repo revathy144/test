@@ -37,6 +37,7 @@ import com.twitter.util.Future
 import com.twitter.util.Time
 import com.twitter.util.Timer
 import java.net.InetSocketAddress
+import com.twitter.finagle.Address
 import org.scala_tools.time.Imports._
 
 class IndexService(
@@ -197,7 +198,7 @@ object IndexService
       if (!isBound) {
         Addr.Neg
       } else {
-        Addr.Bound(new InetSocketAddress(host, port))
+        Addr.Bound(Address(new InetSocketAddress(host, port)))
       }
     }
   }
